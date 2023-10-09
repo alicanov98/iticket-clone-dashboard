@@ -1,0 +1,23 @@
+.footer {
+  width: 100%;
+  padding: 16px 0;
+  box-shadow: 1px 0 20px 1px rgba(255, 255, 255, 0.3);
+  background-color: #fff;
+
+  .container {
+    .row {
+      justify-content: center;
+      align-items: center;
+
+      .copyright {
+        font-size: 14px;
+        color: #7a8395;
+
+        span {
+          color: #000;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

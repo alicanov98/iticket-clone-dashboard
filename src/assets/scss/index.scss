@@ -1,0 +1,17 @@
+// Global styles
+@import "./base";
+
+// Components
+@import "./components/header";
+@import "./components/footer";
+@import "./components/loader";
+
+// Pages
+@import "./pages/home";
+@import "./pages/all-tickets";
+@import "./pages/create-ticket";
+@import "./pages/edit-ticket";
+@import "./pages/login";
+@import "./pages/profile";
+@import "./pages/reset-password";
+@import "./pages/not-found";
