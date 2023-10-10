@@ -8,6 +8,7 @@ export const Context = createContext();
 
 //? Create context component
 export const MainContext = ({ children }) => {
+  
   //? States
   const [user, setUser] = useState({});
   const [userIn, setUserIn] = useState(false);

@@ -127,7 +127,7 @@ const EditTicket = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.eventTitle && "error"}
                   type="text"
                   name="eventTitle"
                   defaultValue={editData.eventTitle}
@@ -135,10 +135,9 @@ const EditTicket = () => {
                 />
                 <label>Ticket eventTitle</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.eventLocation && "error"}
                   type="text"
                   name="eventLocation"
                   defaultValue={editData.eventLocation}
@@ -146,10 +145,9 @@ const EditTicket = () => {
                 />
                 <label>Ticket Event Location</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.venuelocation && "error"}
                   type="text"
                   name="venuelocation"
                   defaultValue={editData.venuelocation}
@@ -157,10 +155,9 @@ const EditTicket = () => {
                 />
                 <label>Ticket Venue Location</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.mobil && "error"}
                   type="text"
                   name="mobil"
                   defaultValue={editData.mobil}
@@ -168,10 +165,9 @@ const EditTicket = () => {
                 />
                 <label>Ticket Mobil</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.ageRestriction && "error"}
                   type="text"
                   name="ageRestriction"
                   defaultValue={editData.ageRestriction}
@@ -179,10 +175,9 @@ const EditTicket = () => {
                 />
                 <label>Ticket Age Restriction</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.language && "error"}
                   type="text"
                   name="language"
                   defaultValue={editData.language}
@@ -190,10 +185,9 @@ const EditTicket = () => {
                 />
                 <label>Ticket Language</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.minimumPrice && "error"}
                   type="text"
                   name="minimumPrice"
                   defaultValue={editData.minimumPrice}
@@ -201,10 +195,9 @@ const EditTicket = () => {
                 />
                 <label>Ticket Minimum Price</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.maximumPrice && "error"}
                   type="text"
                   name="maximumPrice"
                   defaultValue={editData.maximumPrice}
@@ -212,10 +205,9 @@ const EditTicket = () => {
                 />
                 <label>Ticket Maximum Price</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.eventInfo && "error"}
                   type="text"
                   name="eventInfo"
                   defaultValue={editData.eventInfo}
@@ -223,10 +215,9 @@ const EditTicket = () => {
                 />
                 <label>Ticket Event Info</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.eventDate && "error"}
                   type="text"
                   name="eventDate"
                   defaultValue={editData.eventDate}
@@ -234,10 +225,9 @@ const EditTicket = () => {
                 />
                 <label>Ticket Event Date</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.eventDates && "error"}
                   type="text"
                   name="eventDates"
                   defaultValue={editData.eventDates}
@@ -245,10 +235,9 @@ const EditTicket = () => {
                 />
                 <label>Ticket Event Dates</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.startTime && "error"}
                   type="text"
                   name="startTime"
                   defaultValue={editData.startTime}
@@ -256,10 +245,9 @@ const EditTicket = () => {
                 />
                 <label>Ticket Start Time</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.endTime && "error"}
                   type="text"
                   name="endTime"
                   defaultValue={editData.endTime}
@@ -267,10 +255,9 @@ const EditTicket = () => {
                 />
                 <label>Ticket End Time</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.category && "error"}
                   type="text"
                   name="category"
                   defaultValue={editData.category}
@@ -278,10 +265,9 @@ const EditTicket = () => {
                 />
                 <label>Ticket Category</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.status && "error"}
                   type="text"
                   name="status"
                   defaultValue={editData.status}
@@ -289,7 +275,6 @@ const EditTicket = () => {
                 />
                 <label>Ticket Status</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <label htmlFor="cImg">Select Card Image</label>
                 <input

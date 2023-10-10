@@ -88,156 +88,139 @@ const CreateTicket = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="user-box">
                 <input
-                  className={errors.name && "error"}
+                  className={errors.eventTitle && "error"}
                   type="text"
                   name="eventTitle"
                   {...register("eventTitle")}
                 />
                 <label>Ticket Event Title</label>
               </div>
-              {errors.eventTitle && (
-                <span className="inputErrors">{errors.eventTitle.message}</span>
-              )}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.eventLocation && "error"}
                   type="text"
                   name="eventLocation"
                   {...register("eventLocation")}
                 />
                 <label>Ticket Event Location</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.venuelocation && "error"}
                   type="text"
                   name="venuelocation"
                   {...register("venuelocation")}
                 />
                 <label>Ticket Venue location</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.mobil && "error"}
                   type="text"
                   name="mobil"
                   {...register("mobil")}
                 />
                 <label>Ticket Mobil</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.ageRestriction && "error"}
                   type="text"
                   name="ageRestriction"
                   {...register("ageRestriction")}
                 />
                 <label>Ticket Age Restriction</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.language && "error"}
                   type="text"
                   name="language"
                   {...register("language")}
                 />
                 <label>Ticket Language</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.minimumPrice && "error"}
                   type="text"
                   name="minimumPrice"
                   {...register("minimumPrice")}
                 />
                 <label>Ticket Minimum Price</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.maximumPrice && "error"}
                   type="text"
                   name="maximumPrice"
                   {...register("maximumPrice")}
                 />
                 <label>Ticket Maximum Price</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.eventInfo && "error"}
                   type="text"
                   name="eventInfo"
                   {...register("eventInfo")}
                 />
                 <label>Ticket Event Info</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.eventDate && "error"}
                   type="text"
                   name="eventDate"
                   {...register("eventDate")}
                 />
                 <label>Ticket Event Date</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.eventDates && "error"}
                   type="text"
                   name="eventDates"
                   {...register("eventDates")}
                 />
                 <label>Ticket Event Dates</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.startTime && "error"}
                   type="text"
                   name="startTime"
                   {...register("startTime")}
                 />
                 <label>Ticket Start Time</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.endTime && "error"}
                   type="text"
                   name="endTime"
                   {...register("endTime")}
                 />
                 <label>Ticket End Time</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.category && "error"}
                   type="text"
                   name="category"
                   {...register("category")}
                 />
                 <label>Ticket Category</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <input
-                  // className={errors.name && "error"}
+                  className={errors.status && "error"}
                   type="text"
                   name="status"
                   {...register("status")}
                 />
                 <label>Ticket Status</label>
               </div>
-              {/* {errors.name && <span>{errors.name.message}</span>} */}
               <div className="user-box">
                 <label htmlFor="cImg">Select Card Image</label>
                 <input
