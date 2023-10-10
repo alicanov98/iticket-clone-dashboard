@@ -1,19 +1,27 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
 
-// Icons
+//? Axios
+import axios from "axios";
+
+//? React Icons
 import { FaTrash, FaEdit } from "react-icons/fa";
 
-// Router
+//? Router
 import { Link } from "react-router-dom";
 
+//? Sweet alert
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
+
 const AllTickets = () => {
+  //? Local states
   const [tickets, setTickets] = useState([]);
 
   useEffect(() => {
     getAllTickets();
   }, []);
 
+  //? Get all tickets from api
   const getAllTickets = async () => {
     await axios
       .get(process.env.REACT_APP_ALL_EVENTS)
@@ -25,15 +33,33 @@ const AllTickets = () => {
       });
   };
 
-  const deleteTicket = async (id) => {
-    await axios
-      .delete(`${process.env.REACT_APP_DELETE_EVENT}/${id}`)
-      .then((res) => {
-        setTickets(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  //? Delete tickets from api
+  const deleteTicket = (item) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: `You want to delete ${item.eventTitle} event ?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        await axios
+          .delete(`${process.env.REACT_APP_DELETE_EVENT}/${item.id}`)
+          .then((res) => {
+            setTickets(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        Swal.fire(
+          "Successfully !",
+          `${item.eventTitle} event already deleted from database !`,
+          "success"
+        );
+      }
+    });
   };
 
   return (
@@ -69,7 +95,7 @@ const AllTickets = () => {
                     <Link to={`/edit-ticket/${item.id}`}>
                       <FaEdit />
                     </Link>
-                    <FaTrash onClick={() => deleteTicket(item.id)} />
+                    <FaTrash onClick={() => deleteTicket(item)} />
                   </td>
                 </tr>
               ))}

@@ -1,28 +1,37 @@
-import { useForm } from "react-hook-form";
-import { object, string } from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
 import { useEffect, useState } from "react";
+
+//? React hook form
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+//? Yup
+import { object, string } from "yup";
+
+//? Axios
+import axios from "axios";
+
+//? Router
 import { useParams } from "react-router-dom";
 
 const EditTicket = () => {
+  //? Router
   const { ticketID } = useParams();
 
-  // Local states
+  //? Local states
   const [cardImg, setCardImg] = useState(null);
   const [bannerImg, setBannerImg] = useState(null);
   const [locationImg, setLocationImg] = useState(null);
   const [infoImg, setInfoImg] = useState(null);
-  const [sliderImg,setSliderImg]=useState(null);
-
+  const [sliderImg, setSliderImg] = useState(null);
   const [editData, setEditData] = useState({});
 
+  //? Get single event data
   useEffect(() => {
     const getSingleTicketData = async () => {
       await axios
         .get(`${process.env.REACT_APP_EVENT_DETAILS}/${ticketID}`)
         .then((res) => {
-         setEditData(res.data)
+          setEditData(res.data);
         })
         .catch((err) => {
           console.log(err);
@@ -31,6 +40,7 @@ const EditTicket = () => {
     getSingleTicketData();
   }, [ticketID]);
 
+  //? Yup schema
   const ticketSchema = object({
     eventTitle: string().required(),
     eventLocation: string().required(),
@@ -49,6 +59,7 @@ const EditTicket = () => {
     status: string().required(),
   });
 
+  //? React hook form
   const {
     register,
     handleSubmit,
@@ -74,6 +85,7 @@ const EditTicket = () => {
     },
   });
 
+  //? Send updated data to api
   const onSubmit = async (data) => {
     const formData = new FormData();
     formData.append("eventTitle", data.eventTitle);
@@ -95,8 +107,7 @@ const EditTicket = () => {
     formData.append("bannerImg", bannerImg);
     formData.append("locationImg", locationImg);
     formData.append("infoImg", infoImg);
-    formData.append("sliderImg",sliderImg);
-
+    formData.append("sliderImg", sliderImg);
     await axios
       .put(`${process.env.REACT_APP_CREATE_EVENT}/${ticketID}`, formData)
       .then((res) => {

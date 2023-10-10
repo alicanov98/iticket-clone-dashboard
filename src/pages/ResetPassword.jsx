@@ -1,23 +1,32 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
 import { useState } from "react";
+
+//? Axios
+import axios from "axios";
+
+//? React hook form
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+//? Router
 import { useNavigate } from "react-router-dom";
+
+//? Yup
 import * as yup from "yup";
 
 const ResetPassword = () => {
+  //? Router
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
-
+  //? Local states
   const [step, setStep] = useState("email");
 
+  //? Yup schema
   const defaultValues = {
     email: "",
     otp: "",
     password: "",
     rePassword: "",
   };
-
   const generalSchema = yup.object({
     email: yup.string().trim().email().required(),
     otp: yup.string().trim().required(),
@@ -28,11 +37,11 @@ const ResetPassword = () => {
       .oneOf([yup.ref("password"), null], "Passwords do not match")
       .required("Password confirmation is required"),
   });
-
   const emailSchema = generalSchema.pick(["email"]);
   const otpSchema = generalSchema.pick(["otp"]);
   const resetSchema = generalSchema.pick(["password", "rePassword"]);
 
+  //? React hook form
   const {
     register,
     handleSubmit,
@@ -44,9 +53,9 @@ const ResetPassword = () => {
     ),
   });
 
+  //? Reset password
   const onSubmit = async (data) => {
     const token = JSON.parse(localStorage.getItem("token"));
-
     if (step === "email") {
       await axios
         .post(process.env.REACT_APP_RESET_PASSWORD, {
@@ -79,12 +88,12 @@ const ResetPassword = () => {
           password: data.password,
         })
         .then((res) => {
-          setStep('email')
-          navigate("/login")
+          setStep("email");
+          navigate("/login");
           window.location.reload();
         })
         .catch((err) => {
-          setStep('reset')
+          setStep("reset");
         });
     }
   };

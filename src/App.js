@@ -1,20 +1,24 @@
-// Router
+//? Router
 import { Routes, Route } from "react-router-dom";
 
-// Pages
+//? Components
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+//? Pages
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
-
-// Components
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import AllTickets from "./pages/AllTickets";
 import CreateTicket from "./pages/CreateTicket";
 import EditTicket from "./pages/EditTicket";
-import { MainContext } from "./utils/MainContext";
 import Profile from "./pages/Profile";
 import ResetPassword from "./pages/ResetPassword";
+
+//? Context
+import { MainContext } from "./utils/MainContext";
+
+//? Login protector
 import ProtectedRouter from "./router/ProtectedRouter";
 
 const App = () => {

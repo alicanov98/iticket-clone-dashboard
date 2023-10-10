@@ -1,24 +1,34 @@
-import  { useContext } from "react";
+import { useContext } from "react";
+
+//? Context
 import { Context } from "../utils/MainContext";
+
+//? Router
 import { Link } from "react-router-dom";
+
+//? Axios
 import axios from "axios";
 
 const Profile = () => {
-  const { user,setUser } = useContext(Context);
+  //? Context
+  const { user, setUser } = useContext(Context);
 
-  const changeImage = async(e)=>{
-    const token = JSON.parse(localStorage.getItem('token'))
+  //? Send ptofile image to api
+  const changeImage = async (e) => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    const body = new FormData();
+    body.append("token", token);
+    body.append("profileImage", e.target.files[0]);
 
-    const body = new FormData()
-    body.append('token',token)
-    body.append('profileImage',e.target.files[0])
-
-    await axios.put(process.env.REACT_APP_ADD_PROFILE_IMAGE,body).then(res=>{
-      setUser(res.data)
-    }).catch(err=>{
-      console.log(err)
-    })
-  }
+    await axios
+      .put(process.env.REACT_APP_ADD_PROFILE_IMAGE, body)
+      .then((res) => {
+        setUser(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <section className="profile">
@@ -37,7 +47,7 @@ const Profile = () => {
               </div>
               <form className="imgForm">
                 <label htmlFor="img">Change Image</label>
-                <input type="file" onChange={changeImage}/>
+                <input type="file" onChange={changeImage} />
               </form>
             </div>
             <div className="rightSide">

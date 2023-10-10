@@ -1,17 +1,24 @@
-import { useForm } from "react-hook-form";
-import { object, string } from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
 import { useState } from "react";
 
+//? Axios
+import axios from "axios";
+
+//? React hook form
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+//? Yup
+import { object, string } from "yup";
+
 const CreateTicket = () => {
-  // Local states
+  //? Local states
   const [cardImg, setCardImg] = useState(null);
   const [bannerImg, setBannerImg] = useState(null);
   const [locationImg, setLocationImg] = useState(null);
   const [infoImg, setInfoImg] = useState(null);
   const [sliderImg, setSliderImg] = useState(null);
 
+  //? Yup schema
   const ticketSchema = object({
     eventTitle: string().required(),
     eventLocation: string().required(),
@@ -30,6 +37,7 @@ const CreateTicket = () => {
     status: string().required(),
   });
 
+  //? React hook form
   const {
     register,
     handleSubmit,
@@ -38,6 +46,7 @@ const CreateTicket = () => {
     resolver: yupResolver(ticketSchema),
   });
 
+  //? Send new ticket to api
   const onSubmit = async (data) => {
     const formData = new FormData();
     formData.append("eventTitle", data.eventTitle);
@@ -60,7 +69,6 @@ const CreateTicket = () => {
     formData.append("locationImg", locationImg);
     formData.append("infoImg", infoImg);
     formData.append("sliderImg", sliderImg);
-
     await axios
       .post(process.env.REACT_APP_CREATE_EVENT, formData)
       .then((res) => {
@@ -87,7 +95,9 @@ const CreateTicket = () => {
                 />
                 <label>Ticket Event Title</label>
               </div>
-              {errors.eventTitle && <span className="inputErrors">{errors.eventTitle.message}</span>}
+              {errors.eventTitle && (
+                <span className="inputErrors">{errors.eventTitle.message}</span>
+              )}
               <div className="user-box">
                 <input
                   // className={errors.name && "error"}

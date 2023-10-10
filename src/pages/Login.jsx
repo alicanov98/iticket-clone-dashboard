@@ -1,14 +1,29 @@
-import { useForm } from "react-hook-form";
-import { object, string } from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
+
+//? React hook form
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+//? Yup
+import { object, string } from "yup";
+
+//? Axios
+import axios from "axios";
+
+//? Router
+import { useNavigate } from "react-router-dom";
+
+//? Context
 import { Context } from "../utils/MainContext";
 
 const Login = () => {
+  //? Router
   const navigate = useNavigate();
+
+  //? Context
   const { userIn } = useContext(Context);
+
+  //? Check user already login
   useEffect(() => {
     const checkUser = () => {
       if (userIn) {
@@ -18,11 +33,13 @@ const Login = () => {
     checkUser();
   }, [navigate, userIn]);
 
+  //? Yup schema
   const loginSchema = object({
     email: string().trim().required(),
     password: string().trim().required(),
   });
 
+  //? React hook form
   const {
     register,
     handleSubmit,
@@ -31,6 +48,7 @@ const Login = () => {
     resolver: yupResolver(loginSchema),
   });
 
+  //? Login
   const onSubmit = async (data) => {
     await axios
       .post(process.env.REACT_APP_LOGIN, data)
